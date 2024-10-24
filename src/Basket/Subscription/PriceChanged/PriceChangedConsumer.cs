@@ -15,6 +15,5 @@ public class PriceChangedConsumer(BasketDbContext dbContext) : IConsumer<PriceCh
                         .ExecuteUpdateAsync(d => d.SetProperty(d => d.Price, context.Message.Price)
                                       .SetProperty(d => d.LatestPrice, d => d.Price)
                                       .SetProperty(f => f.UserChangedSeen, false));
-
     }
 }
