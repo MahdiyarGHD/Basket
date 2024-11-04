@@ -3,13 +3,13 @@ using Basket.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Basket.Ednpoints;
+namespace Basket.Endpoints;
 
-public static class IncreaseQuantityEndpoint
+public static class RemoveItemEndpoint
 {
-    public static void MapIncreaseQuantityEndpoint(this IEndpointRouteBuilder endpoint)
+    public static void MapRemoveItemEndpoint(this IEndpointRouteBuilder endpoint)
     {
-        endpoint.MapPatch("/primary/{item-id}/increase",
+        endpoint.MapDelete("/primary/{item-id}/remove",
              async ([FromRoute(Name = "item-id")] Guid ItemId,
              BasketDbContext dbContext) =>
         {
@@ -23,7 +23,7 @@ public static class IncreaseQuantityEndpoint
                 return Results.BadRequest("invalid your data!");
             }
 
-            primaryBasket.IncreaseQuantity(ItemId);
+            primaryBasket.Remove(ItemId);
             await dbContext.SaveChangesAsync();
 
             return Results.Ok();
