@@ -1,5 +1,5 @@
 using Basket;
-using Basket.Ednpoints;
+using Basket.Endpoints;
 using Basket.Persistence;
 using Basket.Subscription.PriceChanged;
 using Basket.Subscription.PrimaryBasketCleanup;

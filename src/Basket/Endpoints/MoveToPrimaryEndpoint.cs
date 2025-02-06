@@ -3,7 +3,7 @@ using Basket.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Basket.Ednpoints;
+namespace Basket.Endpoints;
 
 public static class MoveToPrimaryEndpoint
 {
